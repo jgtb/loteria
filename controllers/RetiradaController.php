@@ -58,6 +58,7 @@ class RetiradaController extends Controller
 
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             $model->data = date('Y-m-d', strtotime(str_replace('/', '-', $model->data)));
+            $model->save();
             return $this->redirect(['index']);
         } else {
             return $this->render('update', [
