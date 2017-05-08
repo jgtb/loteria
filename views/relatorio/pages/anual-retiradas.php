@@ -1,7 +1,11 @@
+<?php
+
+use yii\helpers\Html;
+?>
 <table class="table table-bordered table-striped table-condensed table-responsive">
     <thead class="text-center">
         <tr>
-            <th style="vertical-align: middle;">Mês</th>
+            <th>Mês</th>
             <th>Valor</th>
             <th>Roberto</th>
             <th>Juliana</th>

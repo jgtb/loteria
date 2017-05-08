@@ -12,12 +12,12 @@ Modal::begin([
 ?>
 
 <?php if ($modelsDespesa) : ?>
-    <h4 class="modal-title text-center" style="margin-bottom: 10px;"><?= $model->getDataModal($dia, $mes, $ano, $periodoInicial, $periodoFinal); ?></h4>
+    <h4 class="modal-title text-center m-b-10"><?= $model->getDataModal($dia, $mes, $ano, $periodoInicial, $periodoFinal); ?></h4>
     <table class="table table-striped table-bordered table-condensed table-responsive">
         <thead>
             <tr>
                 <th>Categoria</th>
-                <th class="<?= $dia != NULL ? 'hidden' : '' ?>">Data</th>
+                <th>Data</th>
                 <th>Valor</th>
             </tr>
         </thead>
@@ -25,7 +25,7 @@ Modal::begin([
             <?php foreach ($modelsDespesa as $modelDespesa) : ?>
                 <tr>
                     <td><?= $modelDespesa->categoria->descricao ?></td>
-                    <td class="<?= $dia != NULL ? 'hidden' : '' ?>"><?= date('d/m/Y', strtotime($modelDespesa->data)) ?></td>
+                    <td><?= date('d/m/Y', strtotime($modelDespesa->data)) ?></td>
                     <td>R$ <?= number_format($modelDespesa->valor, 2, ',', '.') ?></td>
                 </tr>
             <?php endforeach; ?>

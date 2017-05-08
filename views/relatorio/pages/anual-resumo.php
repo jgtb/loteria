@@ -2,12 +2,11 @@
 
 use yii\helpers\Html;
 ?>
-
-<div style="overflow: auto;">
+<div class="overflow-auto">
     <table class="table table-bordered table-striped table-condensed table-responsive">
         <thead class="text-center">
             <tr>
-                <th style="vertical-align: middle;">Mês</th>
+                <th>Mês</th>
                 <th>Comissão #Jogos</th>
                 <th>Comissão #Serviços</th>
                 <th>Total #Receitas</th>

@@ -1,3 +1,7 @@
+<?php
+
+use yii\helpers\Html;
+?>
 <table class="table table-bordered table-striped table-condensed table-responsive">
     <thead class="text-center">
         <tr>

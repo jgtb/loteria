@@ -144,3 +144,7 @@ a.desc:after {
 .overflow-auto {
     overflow: auto;
 }
+
+.m-b-10 {
+    margin-bottom: 10px;
+}
