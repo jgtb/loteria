@@ -90,16 +90,16 @@ class RelatorioController extends Controller {
     public function actionModal($id, $dia = NULL, $mes = NULL, $ano = NULL, $categoriaID = NULL, $periodoInicial = NULL, $periodoFinal = NULL) {
 
         if ($dia != NULL)
-            $modelsDespesa = Despesa::find()->joinWith('categoria')->where(['DAY(data)' => $dia, 'MONTH(data)' => $mes, 'YEAR(data)' => $ano])->orderBy(['categoria.descricao' => SORT_ASC])->all();
+            $modelsDespesa = Despesa::find()->joinWith('categoria')->where(['DAY(data)' => $dia, 'MONTH(data)' => $mes, 'YEAR(data)' => $ano])->orderBy(['categoria.descricao' => SORT_ASC, 'despesa.data' => SORT_ASC])->all();
 
         if ($dia == NULL)
-            $modelsDespesa = Despesa::find()->joinWith('categoria')->where(['MONTH(data)' => $mes, 'YEAR(data)' => $ano])->orderBy(['categoria.descricao' => SORT_ASC])->all();
+            $modelsDespesa = Despesa::find()->joinWith('categoria')->where(['MONTH(data)' => $mes, 'YEAR(data)' => $ano])->orderBy(['categoria.descricao' => SORT_ASC, 'despesa.data' => SORT_ASC])->all();
 
         if ($categoriaID != NULL)
-            $modelsDespesa = Despesa::find()->joinWith('categoria')->where(['DAY(data)' => $dia, 'MONTH(data)' => $mes, 'YEAR(data)' => $ano, 'despesa.categoria_id' => $categoriaID])->orderBy(['categoria.descricao' => SORT_ASC])->all();
+            $modelsDespesa = Despesa::find()->joinWith('categoria')->where(['DAY(data)' => $dia, 'MONTH(data)' => $mes, 'YEAR(data)' => $ano, 'despesa.categoria_id' => $categoriaID])->orderBy(['categoria.descricao' => SORT_ASC, 'despesa.data' => SORT_ASC])->all();
 
         if ($periodoInicial != NULL && $periodoFinal != NULL)
-            $modelsDespesa = Despesa::find()->joinWith('categoria')->where(['>=', 'DATE(data)', $periodoInicial])->andWhere(['<=', 'DATE(data)', $periodoFinal])->andWhere(['despesa.categoria_id' => $categoriaID])->orderBy(['categoria.descricao' => SORT_ASC])->all();
+            $modelsDespesa = Despesa::find()->joinWith('categoria')->where(['>=', 'DATE(data)', $periodoInicial])->andWhere(['<=', 'DATE(data)', $periodoFinal])->andWhere(['despesa.categoria_id' => $categoriaID])->orderBy(['categoria.descricao' => SORT_ASC, 'despesa.data' => SORT_ASC])->all();
 
         $model = new Relatorio();
         return $this->renderAjax('modal', ['model' => $model, 'modelsDespesa' => $modelsDespesa, 'dia' => $dia, 'mes' => $mes, 'ano' => $ano, 'periodoInicial' => $periodoInicial, 'periodoFinal' => $periodoFinal]);
