@@ -38,7 +38,7 @@ class Relatorio extends \yii\db\ActiveRecord {
     }
 
     public function getRelatorio() {
-        $relatorios = ['Jogos', 'Serviços', 'Despesas', 'Resumo', 'Retiradas', 'Despesas', 'Despesas'];
+        $relatorios = ['Jogos', 'Serviços', 'Despesas', 'Resumo', 'Retiradas', 'Despesas', 'Despesas', 'Jogos', 'Serviços', 'Retiradas', 'Resumo', 'Jogos', 'Serviços', 'Retiradas', 'Resumo'];
 
         return $relatorios[$this->id - 1];
     }

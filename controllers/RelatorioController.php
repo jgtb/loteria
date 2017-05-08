@@ -36,11 +36,11 @@ class RelatorioController extends Controller {
             $model->ano = date('Y', strtotime($model->ano . '-01-01'));
         }
 
-        if (in_array($modelRelatorio->id, [6])) {
+        if (in_array($modelRelatorio->id, [6, 8, 9, 10, 11])) {
             $model->mes_ano = date('m/Y', strtotime($model->mes_ano));
         }
 
-        if (in_array($modelRelatorio->id, [7])) {
+        if (in_array($modelRelatorio->id, [7, 12, 13, 14, 15])) {
             $model->periodo = date('d/m/Y', strtotime($model->periodo_inicial));
             $model->periodo_final = date('d/m/Y', strtotime($model->periodo_final));
         }
@@ -54,21 +54,21 @@ class RelatorioController extends Controller {
                 $model->periodo_final = NULL;
             }
 
-            if (in_array($model->id, [6])) {
+            if (in_array($model->id, [6, 8, 9, 10, 11])) {
                 $model->mes_ano = date('Y-m-d', strtotime(str_replace('/', '-', '01/' . $model->mes_ano)));
                 $model->ano = NULL;
                 $model->periodo_inicial = NULL;
                 $model->periodo_final = NULL;
             }
 
-            if (in_array($model->id, [7])) {
+            if (in_array($model->id, [7, 12, 13, 14, 15])) {
                 $model->periodo_inicial = date('Y-m-d', strtotime(str_replace('/', '-', $model->periodo)));
                 $model->periodo_final = date('Y-m-d', strtotime(str_replace('/', '-', $model->periodo_final)));
                 $model->mes_ano = NULL;
                 $model->ano = NULL;
             }
 
-            $model->save();
+            $model->save(false);
             return $this->redirect(['index', 'id' => $model->relatorio_id]);
         } else {
             return $this->render('index', [

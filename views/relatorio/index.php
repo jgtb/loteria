@@ -1,6 +1,7 @@
 <?php
-use kartik\icons\Icon;
 
+use yii\helpers\Html;
+use kartik\icons\Icon;
 Icon::map($this);
 
 $this->title = 'Relatórios';
@@ -14,8 +15,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 <div class="panel-heading padding-4">
                     <ul class="nav nav-pills nav-justified">
                         <li class="<?= in_array($modelRelatorio->id, [NULL, 1, 2, 3, 4, 5]) ? 'active' : '' ?>"><a data-toggle="tab" href="#anual">Anual</a></li>
-                        <li class="<?= in_array($modelRelatorio->id, [6]) ? 'active' : '' ?>"><a data-toggle="tab" href="#mensal">Mensal</a></li>
-                        <li class="<?= in_array($modelRelatorio->id, [7]) ? 'active' : '' ?>"><a data-toggle="tab" href="#periodo">Período</a></li>
+                        <li class="<?= in_array($modelRelatorio->id, [6, 8, 9, 10, 11]) ? 'active' : '' ?>"><a data-toggle="tab" href="#mensal">Mensal</a></li>
+                        <li class="<?= in_array($modelRelatorio->id, [7, 12, 13, 14, 15]) ? 'active' : '' ?>"><a data-toggle="tab" href="#periodo">Período</a></li>
                     </ul>
                 </div>
                 <div class="panel-body">
@@ -48,6 +49,9 @@ $this->params['breadcrumbs'][] = $this->title;
                         <?php endif; ?>
                         <?php if (in_array($modelRelatorio->id, [6])) : ?>
                             <?php echo $this->render('pages/mensal-despesa', ['modelRelatorio' => $modelRelatorio]); ?>
+                        <?php endif; ?>
+                        <?php if (in_array($modelRelatorio->id, [8, 9])) : ?>
+                            <?php echo $this->render('pages/mensal-j-s', ['modelRelatorio' => $modelRelatorio]); ?>
                         <?php endif; ?>
                         <?php if (in_array($modelRelatorio->id, [7])) : ?>
                             <?php echo $this->render('pages/periodo-despesa', ['modelRelatorio' => $modelRelatorio]); ?>
