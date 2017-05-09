@@ -43,6 +43,17 @@ class Relatorio extends \yii\db\ActiveRecord {
         return $relatorios[$this->id - 1];
     }
 
+    public function getValorDia($dia) {
+        switch ($this->id) {
+            case 12:
+                return (double) Jogo::find()->where(['DATE(data)' => $dia])->sum('valor');
+                break;
+            case 13:
+                return (double) Servico::find()->where(['DATE(data)' => $dia])->sum('valor');
+                break;
+        }
+    }
+
     public function getValor($dia, $mes) {
         switch ($this->id) {
             case 1:
@@ -74,17 +85,33 @@ class Relatorio extends \yii\db\ActiveRecord {
     public function getComissaoJogos($mes, $ano) {
         return (double) Jogo::find()->where(['YEAR(data)' => $ano, 'MONTH(data)' => $mes])->sum('valor');
     }
+    
+    public function getComissaoJogosPeriodo() {
+        return (double) Jogo::find()->where(['between', 'data', $this->periodo_inicial, $this->periodo_final])->sum('valor');
+    }
 
     public function getComissaoServicos($mes, $ano) {
         return (double) Servico::find()->where(['YEAR(data)' => $ano, 'MONTH(data)' => $mes])->sum('valor');
+    }
+    
+    public function getComissaoServicosPeriodo() {
+        return (double) Servico::find()->where(['between', 'data', $this->periodo_inicial, $this->periodo_final])->sum('valor');
     }
 
     public function getTotalReceitas($mes, $ano) {
         return $this->getComissaoJogos($mes, $ano) + $this->getComissaoServicos($mes, $ano);
     }
+    
+    public function getTotalReceitasPeriodo() {
+        return $this->getComissaoJogosPeriodo() + $this->getComissaoServicosPeriodo();
+    }
 
     public function getTotalDespesas($mes, $ano) {
         return (double) Despesa::find()->where(['YEAR(data)' => $ano, 'MONTH(data)' => $mes])->sum('valor');
+    }
+    
+    public function getTotalDespesasPeriodo() {
+        return (double) Despesa::find()->where(['between', 'data', $this->periodo_inicial, $this->periodo_final])->sum('valor');
     }
 
     public function getValorDespesaDia($dia, $categoriaID) {
@@ -102,9 +129,17 @@ class Relatorio extends \yii\db\ActiveRecord {
     public function getLucroMensal($mes, $ano) {
         return $this->getTotalReceitas($mes, $ano) - $this->getTotalDespesas($mes, $ano);
     }
+    
+    public function getLucroMensalPeriodo() {
+        return $this->getTotalReceitasPeriodo() - $this->getTotalDespesasPeriodo();
+    }
 
     public function getRetiradasProlabora($mes, $ano) {
         return (double) Retirada::find()->where(['YEAR(mes)' => $ano, 'MONTH(mes)' => $mes])->sum('valor_roberto + valor_juliana');
+    }
+    
+    public function getRetiradasProlaboraPeriodo() {
+        return (double) Retirada::find()->where(['between', 'mes', $this->periodo_inicial, $this->periodo_final])->sum('valor_roberto + valor_juliana');
     }
 
     public function getRetiradaProlaboraRoberto($mes, $ano) {
@@ -114,9 +149,13 @@ class Relatorio extends \yii\db\ActiveRecord {
     public function getRetiradaProlaboraJuliana($mes, $ano) {
         return (double) Retirada::find()->where(['YEAR(mes)' => $ano, 'MONTH(mes)' => $mes])->sum('valor_juliana');
     }
-
+    
     public function getSaldoMensal($mes, $ano) {
         return $this->getLucroMensal($mes, $ano) - $this->getRetiradasProlabora($mes, $ano);
+    }
+    
+    public function getSaldoMensalPeriodo() {
+        return $this->getLucroMensalPeriodo() - $this->getRetiradasProlaboraPeriodo();
     }
 
     public function getValorGrafico($categoria, $mes, $ano) {
@@ -188,25 +227,87 @@ class Relatorio extends \yii\db\ActiveRecord {
         $despesas = $this->getDespesasAnual($this->ano);
         return $receitaAnual != 0 ? (double) number_format($despesas * 100 / $receitaAnual, 1) : (double) 0;
     }
-    
+
     public function getTotalDespesaPeriodo($categoriaID) {
         return (double) Despesa::find()->where(['categoria_id' => $categoriaID])->andWhere(['>=', 'DATE(data)', $this->periodo_inicial])->andWhere(['<=', 'DATE(data)', $this->periodo_final])->sum('valor');
     }
-    
+
     public function getDataModal($dia, $mes, $ano, $periodoInicial, $periodoFinal) {
         if ($dia != NULL) {
             return date('d/m/Y', strtotime($ano . '/' . $mes . '/' . $dia));
         }
-        
+
         if ($dia == NULL && $periodoInicial == NULL && $periodoFinal == NULL) {
             return $mes . '/' . $ano;
         }
-        
+
         if ($periodoInicial != NULL && $periodoFinal != NULL) {
             return 'De ' . date('d/m/Y', strtotime($periodoInicial)) . ' Até ' . date('d/m/Y', strtotime($periodoFinal));
         }
-        
+
         return 'X';
     }
-    
+
+    public function getValorMensalJS($dia) {
+        switch ($this->id) {
+            case 8:
+                return (double) Jogo::find()->where(['YEAR(data)' => date('Y', strtotime($this->mes_ano)), 'MONTH(data)' => date('m', strtotime($this->mes_ano)), 'DAY(data)' => $dia])->sum('valor');
+                break;
+            case 9:
+                return (double) Servico::find()->where(['YEAR(data)' => date('Y', strtotime($this->mes_ano)), 'MONTH(data)' => date('m', strtotime($this->mes_ano)), 'DAY(data)' => $dia])->sum('valor');
+                break;
+        }
+    }
+
+    public function getValorMensalTotalJS() {
+        switch ($this->id) {
+            case 8:
+                return (double) Jogo::find()->where(['YEAR(data)' => date('Y', strtotime($this->mes_ano)), 'MONTH(data)' => date('m', strtotime($this->mes_ano))])->sum('valor');
+                break;
+            case 9:
+                return (double) Servico::find()->where(['YEAR(data)' => date('Y', strtotime($this->mes_ano)), 'MONTH(data)' => date('m', strtotime($this->mes_ano))])->sum('valor');
+                break;
+        }
+    }
+
+    public function getValorTotalPeriodo() {
+        switch ($this->id) {
+            case 12:
+                return (double) Jogo::find()->where(['between', 'data', $this->periodo_inicial, $this->periodo_final])->sum('valor');
+                break;
+            case 13:
+                return (double) Servico::find()->where(['between', 'data', $this->periodo_inicial, $this->periodo_final])->sum('valor');
+                break;
+        }
+    }
+
+    public function getRelatorioData() {
+        if (in_array($this->id, [1, 2, 3, 4, 5])) {
+            return 'Ano de ' . date('Y', strtotime($this->ano . '-01-01'));
+        }
+
+        if (in_array($this->id, [6, 8, 9, 10, 11])) {
+            $meses = ['', 'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
+            return $meses[date('m', strtotime($this->mes_ano)) * 1] . ' de ' . date('Y', strtotime($this->mes_ano));
+        }
+
+        if (in_array($this->id, [7, 12, 13, 14, 15])) {
+            return 'De ' . date('d/m/Y', strtotime($this->periodo_inicial)) . ' Até ' . date('d/m/Y', strtotime($this->periodo_final));
+        }
+    }
+
+    function dateRange($first, $last, $step = '+1 day', $format = 'Y-m-d') {
+        $dates = [];
+        $current = strtotime($first);
+        $last = strtotime($last);
+
+        while ($current <= $last) {
+
+            $dates[] = date($format, $current);
+            $current = strtotime($step, $current);
+        }
+
+        return $dates;
+    }
+
 }

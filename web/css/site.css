@@ -124,8 +124,12 @@ a.desc:after {
     float: left;
 }
 
-.btn-panel-title {
-    margin-top: -6px;
+.float-right {
+    float: right;
+}
+
+.panel-heading-main {
+    height: 50px;
 }
 
 .highcharts-axis, .highcharts-yaxis, .highcharts-legend, .modal-header {
@@ -147,4 +151,16 @@ a.desc:after {
 
 .m-b-10 {
     margin-bottom: 10px;
+}
+
+.display-inline {
+    display: inline;
+}
+
+.panel-chart {
+    margin-bottom: -35px;
+}
+
+.highcharts-background {
+    fill: transparent;
 }

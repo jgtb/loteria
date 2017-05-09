@@ -16,6 +16,7 @@ class Categoria extends \yii\db\ActiveRecord
     {
         return [
             [['descricao'], 'string', 'max' => 225, 'message' => 'Campo obrigatório'],
+            [['descricao'], 'unique', 'message' => 'Categoria já existente'],
         ];
     }
 

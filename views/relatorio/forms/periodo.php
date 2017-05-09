@@ -7,7 +7,7 @@ use yii\bootstrap\ActiveForm;
 <div id="periodo" class="tab-pane fade <?= in_array($modelRelatorio->id, [7, 12, 13, 14, 15]) ? 'in active' : '' ?>">
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'id')->dropDownList([12 => 'Jogos', 13 => 'Serviços', 7 => 'Despesas', 14 => 'Retiradas', 15 => 'Resumo'], ['prompt' => 'Selecione um Relatório']) ?>
+    <?= $form->field($model, 'id')->dropDownList([12 => 'Jogos', 13 => 'Serviços', 7 => 'Despesas', 15 => 'Resumo'], ['prompt' => 'Selecione um Relatório']) ?>
 
     <?=
     $form->field($model, 'periodo')->widget(DatePicker::classname(), [
