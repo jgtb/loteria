@@ -153,6 +153,10 @@ a.desc:after {
     margin-bottom: 10px;
 }
 
+.m-b-15 {
+    margin-bottom: 15px;
+}
+
 .display-inline {
     display: inline;
 }

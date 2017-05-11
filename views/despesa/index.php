@@ -29,7 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'emptyText' => 'Nenhum resultado encontrado.',
         'tableOptions' => ['class' => 'table table-striped table-bordered table-condensed table-responsive'],
         'columns' => [
-            ['attribute' => 'categoria_id', 'filter' => ArrayHelper::map(Categoria::find()->where(['status' => 1])->orderBy(['descricao' => SORT_ASC])->all(), 'descricao', 'descricao'), 'value' => function ($model) {
+            ['attribute' => 'categoria_id', 'filter' => ArrayHelper::map(Categoria::find()->where(['status' => 1])->orderBy(['descricao' => SORT_ASC])->all(), 'categoria_id', 'descricao'), 'value' => function ($model) {
                     return $model->categoria->descricao;
                 }],
             ['attribute' => 'data', 'format' => 'raw', 'filter' => DatePicker::widget(['model' => $searchModel, 'attribute' => 'data', 'language' => 'pt-BR', 'removeButton' => ['icon' => 'trash'], 'pluginOptions' => ['format' => 'mm/yyyy', 'autoclose' => true, 'minViewMode' => 1]]), 'value' => function ($model) {
@@ -40,7 +40,6 @@ $this->params['breadcrumbs'][] = $this->title;
                 }],
             ['class' => 'yii\grid\ActionColumn',
                 'template' => '{update} {delete}',
-                'contentOptions' => ['style' => 'width: 10%;'],
                 'buttons' => [
                     'update' => function ($url, $model, $key) {
                         return Html::a('<span class="glyphicon glyphicon-edit"></span>', $url, ['class' => 'btn btn-xs btn-primary', 'data-pjax' => 0, 'title' => 'Alterar Despesa']);

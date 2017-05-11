@@ -37,7 +37,7 @@ class DespesaSearch extends Despesa {
             return $dataProvider;
         }
 
-        $query->andFilterWhere(['like', 'categoria.descricao', $this->categoria_id])
+        $query->andFilterWhere(['like', 'categoria.categoria_id', $this->categoria_id])
                 ->andFilterWhere(['=', 'despesa.valor', $this->valor]);
         
         if ($this->data) {

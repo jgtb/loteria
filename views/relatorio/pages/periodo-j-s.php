@@ -6,18 +6,20 @@ $dateRange = $modelRelatorio->dateRange($modelRelatorio->periodo_inicial, $model
         <tr>
             <th>Data</th>
             <th>Valor</th>
-            <th>Total Período</th>
         </tr>
     </thead>
     <tbody>
         <?php foreach ($dateRange as $index => $date) : ?>
-            <tr>
-                <td><?= date('d/m/Y', strtotime($date)) ?></td>
-                <td><?= number_format($modelRelatorio->getValorDia($date), 2, ',', '.') ?></td>
-                <?php if ($index == 0) : ?>
-                    <td><?= number_format($modelRelatorio->getValorTotalPeriodo(), 2, ',', '.') ?></td>
-                <?php endif; ?>
-            </tr>
+            <?php if ($modelRelatorio->id == 13 && in_array(date('d', strtotime($date)), [2, 12, 22]) || $modelRelatorio->id == 12) : ?>
+                <tr>
+                    <td><?= date('d/m/Y', strtotime($date)) ?></td>
+                    <td><?= number_format($modelRelatorio->getValorDia($date), 2, ',', '.') ?></td>
+                </tr>
+            <?php endif; ?>
         <?php endforeach; ?>
+        <tr>
+            <td>Total / Período</td>
+            <td><?= number_format($modelRelatorio->getValorTotalPeriodo(), 2, ',', '.') ?></td>
+        </tr>
     </tbody>
 </table>

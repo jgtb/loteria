@@ -36,10 +36,9 @@ $this->params['breadcrumbs'][] = $this->title;
                 }],
             ['class' => 'yii\grid\ActionColumn',
                 'template' => '{update} {delete}',
-                'contentOptions' => ['style' => 'width: 15%;'],
-                'buttons' => [
+                    'buttons' => [
                     'update' => function ($url, $model, $key) {
-                        return Html::a('<span class="glyphicon glyphicon-edit"></span>', $url, ['class' => 'btn btn-xs btn-primary', 'data-pjax' => 0, 'title' => 'Alterar Jogo']);
+                        return Html::a('<span class="glyphicon glyphicon-edit"></span>', $url, ['class' => 'btn btn-xs btn-primary', 'title' => 'Alterar Jogo', 'data-pjax' => 0]);
                     },
                     'delete' => function ($url, $model, $key) use ($id) {
                         return Html::a('<span class="glyphicon glyphicon-trash"></span>', $url, ['class' => 'btn btn-xs btn-danger', 'title' => 'Excluír Jogo', 'data-pjax' => 0, 'data-confirm' => 'Você tem certeza que deseja excluír este item?', 'data-method' => 'post']);

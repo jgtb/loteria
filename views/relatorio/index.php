@@ -33,50 +33,20 @@ $this->params['breadcrumbs'][] = $this->title;
             <?php if ($id != NULL) : ?>
                 <div class="panel panel-default">
                     <div class="panel-heading panel-heading-main">
-                        <?= Html::a(Icon::show('print', ['class' => 'fa-2x']), '#', ['class' => 'btn btn-xs btn-panel-title-print btn-info float-right']) ?>
+                        <?= Html::a(Icon::show('print', ['class' => 'fa-2x']), ['pdf', 'id' => $id], ['class' => 'btn btn-xs btn-panel-title-print btn-info float-right', 'target' => '_blank']) ?>
                         <?php if (in_array($modelRelatorio->id, [4])) : ?>
                             <?= Html::a(Icon::show('bar-chart', ['class' => 'fa-2x']), '#', ['class' => 'btn btn-xs btn-panel-title btn-warning float-left']) ?>
                         <?php endif; ?>
                         <h1 class="panel-title text-uppercase text-center"><?= $modelRelatorio->getRelatorio(); ?></h1>
                     </div>
                     <div class="panel-body panel-body-table">
-                        <h1 class="panel-title m-b-10"><?= $modelRelatorio->getRelatorioData() ?> <span class="fa fa-calendar"></span></h1>
-                        <?php if (in_array($modelRelatorio->id, [1, 2, 3])) : ?>
-                            <?php echo $this->render('pages/anual-j-s-d', ['modelRelatorio' => $modelRelatorio]); ?>
-                        <?php endif; ?>
-                        <?php if (in_array($modelRelatorio->id, [4])) : ?>
-                            <?php echo $this->render('pages/anual-resumo', ['modelRelatorio' => $modelRelatorio]); ?>
-                        <?php endif; ?>
-                        <?php if (in_array($modelRelatorio->id, [5])) : ?>
-                            <?php echo $this->render('pages/anual-retiradas', ['modelRelatorio' => $modelRelatorio]); ?>
-                        <?php endif; ?>
-                        <?php if (in_array($modelRelatorio->id, [6])) : ?>
-                            <?php echo $this->render('pages/mensal-despesas', ['modelRelatorio' => $modelRelatorio]); ?>
-                        <?php endif; ?>
-                        <?php if (in_array($modelRelatorio->id, [8, 9])) : ?>
-                            <?php echo $this->render('pages/mensal-j-s', ['modelRelatorio' => $modelRelatorio]); ?>
-                        <?php endif; ?>
-                        <?php if (in_array($modelRelatorio->id, [10])) : ?>
-                            <?php echo $this->render('pages/mensal-retiradas', ['modelRelatorio' => $modelRelatorio]); ?>
-                        <?php endif; ?>
-                        <?php if (in_array($modelRelatorio->id, [11])) : ?>
-                            <?php echo $this->render('pages/mensal-resumo', ['modelRelatorio' => $modelRelatorio]); ?>
-                        <?php endif; ?>
-                        <?php if (in_array($modelRelatorio->id, [7])) : ?>
-                            <?php echo $this->render('pages/periodo-despesas', ['modelRelatorio' => $modelRelatorio]); ?>
-                        <?php endif; ?>
-                        <?php if (in_array($modelRelatorio->id, [12, 13])) : ?>
-                            <?php echo $this->render('pages/periodo-j-s', ['modelRelatorio' => $modelRelatorio]); ?>
-                        <?php endif; ?>
-                        <?php if (in_array($modelRelatorio->id, [14])) : ?>
-                            <?php echo $this->render('pages/periodo-retiradas', ['modelRelatorio' => $modelRelatorio]); ?>
-                        <?php endif; ?>
-                        <?php if (in_array($modelRelatorio->id, [15])) : ?>
-                            <?php echo $this->render('pages/periodo-resumo', ['modelRelatorio' => $modelRelatorio]); ?>
-                        <?php endif; ?>
+                        <h1 class="panel-title m-b-15"><?= $modelRelatorio->getRelatorioData() ?> <span class="fa fa-calendar"></span></h1>
+                        <?php echo $this->render('pages/' . $modelRelatorio->getPage(), ['modelRelatorio' => $modelRelatorio]); ?>
                     </div>
                     <?php if (in_array($modelRelatorio->id, [4])) : ?>
-                        <?php echo $this->render('pages/charts', ['modelRelatorio' => $modelRelatorio]); ?>
+                        <div class="panel-body panel-body-chart hidden">
+                            <?php echo $this->render('pages/charts', ['modelRelatorio' => $modelRelatorio]); ?>
+                        </div>
                     <?php endif; ?>
                 </div>
             <?php endif; ?>

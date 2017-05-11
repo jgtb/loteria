@@ -309,5 +309,47 @@ class Relatorio extends \yii\db\ActiveRecord {
 
         return $dates;
     }
-
+    
+    public function getPage() {
+        switch ($this->id) {
+            case 1:
+            case 2:
+            case 3:
+                return 'anual-j-s-d';
+                break;
+            case 4:
+                return 'anual-resumo';
+                break;
+            case 5:
+                return 'anual-retiradas';
+                break;
+            case 6:
+                return 'mensal-despesas';
+                break;
+            case 7:
+                return 'periodo-despesas';
+                break;
+            case 8:
+            case 9:
+                return 'mensal-j-s';
+                break;
+            case 10:
+                return 'mensal-retiradas';
+                break;
+            case 11:
+                return 'mensal-resumo';
+                break;
+            case 12:
+            case 13:
+                return 'periodo-j-s';
+                break;
+            case 14:
+                return 'periodo-retiradas';
+                break;
+            case 15;
+                return 'periodo-resumo';
+                break;
+        }
+    }
+    
 }

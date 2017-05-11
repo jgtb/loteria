@@ -78,15 +78,7 @@ class RelatorioController extends Controller {
             ]);
         }
     }
-
-    public function actionView($id) {
-        $model = $this->findModel($id);
-
-        return $this->render($model->getRelatorio(), [
-                    'model' => $model,
-        ]);
-    }
-
+    
     public function actionModal($id, $dia = NULL, $mes = NULL, $ano = NULL, $categoriaID = NULL, $periodoInicial = NULL, $periodoFinal = NULL) {
 
         if ($dia != NULL)
@@ -103,6 +95,14 @@ class RelatorioController extends Controller {
 
         $model = new Relatorio();
         return $this->renderAjax('modal', ['model' => $model, 'modelsDespesa' => $modelsDespesa, 'dia' => $dia, 'mes' => $mes, 'ano' => $ano, 'periodoInicial' => $periodoInicial, 'periodoFinal' => $periodoFinal]);
+    }
+    
+    public function actionPdf($id) {
+        $model = $this->findModel($id);
+        
+        return $this->render('pdf', [
+                    'model' => $model,
+        ]);
     }
 
     protected function findModel($id) {
