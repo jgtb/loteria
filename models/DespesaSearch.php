@@ -22,7 +22,7 @@ class DespesaSearch extends Despesa {
     public function search($params) {
         $query = Despesa::find()
                 ->joinWith('categoria')
-                ->orderBy(['categoria.descricao' => SORT_ASC, 'despesa.data' => SORT_DESC]);
+                ->orderBy(['despesa.data' => SORT_DESC, 'categoria.descricao' => SORT_ASC]);
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
@@ -37,7 +37,7 @@ class DespesaSearch extends Despesa {
             return $dataProvider;
         }
 
-        $query->andFilterWhere(['like', 'categoria.categoria_id', $this->categoria_id])
+        $query->andFilterWhere(['=', 'despesa.categoria_id', $this->categoria_id])
                 ->andFilterWhere(['=', 'despesa.valor', $this->valor]);
         
         if ($this->data) {

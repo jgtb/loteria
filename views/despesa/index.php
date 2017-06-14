@@ -11,13 +11,11 @@ use app\models\Categoria;
 $this->title = 'Despesas';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="despesa-index">
+<div class="index despesa-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h3><?= Html::encode($this->title) ?></h3>
 
-    <p>
-        <?= Html::a('Nova Despesa', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
+    <?= Html::a('Nova Despesa', ['create'], ['class' => 'btn btn-warning']) ?>
 
     <?php Pjax::begin(['id' => 'pjax-despesa', 'timeout' => false, 'enablePushState' => false, 'clientOptions' => ['method' => 'POST']]); ?>
 

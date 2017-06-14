@@ -10,13 +10,11 @@ $this->title = 'Comissão de Serviços';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
-<div class="servico-index">
+<div class="index servico-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h3><?= Html::encode($this->title) ?></h3>
 
-    <p>
-        <?= Html::a('Nova Comissão de Serviços', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
+    <?= Html::a('Nova Comissão de Serviços', ['create'], ['class' => 'btn btn-warning']) ?>
 
     <?php Pjax::begin(['id' => 'pjax-servico', 'timeout' => false, 'enablePushState' => false, 'clientOptions' => ['method' => 'POST']]); ?>
 
@@ -37,6 +35,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 }],
             ['class' => 'yii\grid\ActionColumn',
                 'template' => '{update} {delete}',
+                'options' => ['style' => 'width: 7%;'],
                 'buttons' => [
                     'update' => function ($url, $model, $key) {
                         return Html::a('<span class="glyphicon glyphicon-edit"></span>', $url, ['class' => 'btn btn-xs btn-primary', 'data-pjax' => 0, 'title' => 'Alterar Serviço']);
@@ -50,6 +49,6 @@ $this->params['breadcrumbs'][] = $this->title;
     ]);
     ?>
 
-<?php Pjax::end(); ?>
+    <?php Pjax::end(); ?>
 
 </div>

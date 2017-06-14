@@ -7,14 +7,11 @@ use yii\widgets\Pjax;
 $this->title = 'Categorias';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="categoria-index">
+<div class="index categoria-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+    <h3><?= Html::encode($this->title) ?></h3>
 
-    <p>
-        <?= Html::a('Nova Categoria', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
+    <?= Html::a('Nova Categoria', ['create'], ['class' => 'btn btn-warning']) ?>
 
     <?php Pjax::begin(['id' => 'pjax-categoria', 'timeout' => false, 'enablePushState' => false, 'clientOptions' => ['method' => 'POST']]); ?>
 
@@ -31,6 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 }],
             ['class' => 'yii\grid\ActionColumn',
                 'template' => '{update} {delete}',
+                'options' => ['style' => 'width: 7%;'],
                 'buttons' => [
                     'update' => function ($url, $model, $key) {
                         return Html::a('<span class="glyphicon glyphicon-edit"></span>', $url, ['class' => 'btn btn-xs btn-primary', 'data-pjax' => 0, 'title' => 'Alterar Categoria']);

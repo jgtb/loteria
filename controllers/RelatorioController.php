@@ -97,11 +97,12 @@ class RelatorioController extends Controller {
         return $this->renderAjax('modal', ['model' => $model, 'modelsDespesa' => $modelsDespesa, 'dia' => $dia, 'mes' => $mes, 'ano' => $ano, 'periodoInicial' => $periodoInicial, 'periodoFinal' => $periodoFinal]);
     }
     
-    public function actionPdf($id) {
+    public function actionPdf($id, $chartID = NULL) {
         $model = $this->findModel($id);
         
         return $this->render('pdf', [
                     'model' => $model,
+                    'chartID' => $chartID
         ]);
     }
 

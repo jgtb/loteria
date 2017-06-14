@@ -22,7 +22,7 @@ use yii\bootstrap\ActiveForm;
     ?>
 
     <div class="form-group">
-        <?= Html::submitButton('Gerar', ['class' => 'btn btn-primary']) ?>
+        <?= Html::submitButton('Confirmar', ['class' => 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

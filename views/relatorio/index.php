@@ -11,7 +11,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="relatorio-index">
 
     <div class="row">
-        <div class="col-lg-3">
+        <div class="col-lg-28">
             <div class="panel panel-default">
                 <div class="panel-heading padding-4">
                     <ul class="nav nav-pills nav-justified">
@@ -29,11 +29,11 @@ $this->params['breadcrumbs'][] = $this->title;
                 </div>
             </div>
         </div>
-        <div class="col-lg-9">
+        <div class="col-lg-72">
             <?php if ($id != NULL) : ?>
                 <div class="panel panel-default">
                     <div class="panel-heading panel-heading-main">
-                        <?= Html::a(Icon::show('print', ['class' => 'fa-2x']), ['pdf', 'id' => $id], ['class' => 'btn btn-xs btn-panel-title-print btn-info float-right', 'target' => '_blank']) ?>
+                        <?= Html::a(Icon::show('print', ['class' => 'fa-2x']), ['pdf', 'id' => $id], ['class' => 'btn btn-info btn-xs btn-panel-title-print float-right', 'target' => '_blank']) ?>
                         <?php if (in_array($modelRelatorio->id, [4])) : ?>
                             <?= Html::a(Icon::show('bar-chart', ['class' => 'fa-2x']), '#', ['class' => 'btn btn-xs btn-panel-title btn-warning float-left']) ?>
                         <?php endif; ?>

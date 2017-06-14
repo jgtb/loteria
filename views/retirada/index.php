@@ -9,14 +9,11 @@ use kartik\money\MaskMoney;
 $this->title = 'Retiradas';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="retirada-index">
+<div class="index retirada-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+    <h3><?= Html::encode($this->title) ?></h3>
 
-    <p>
-        <?= Html::a('Nova Retirada', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
+    <?= Html::a('Nova Retirada', ['create'], ['class' => 'btn btn-warning']) ?>
 
     <?php Pjax::begin(['id' => 'pjax-retirada', 'timeout' => false, 'enablePushState' => false, 'clientOptions' => ['method' => 'POST']]); ?>
 
@@ -39,7 +36,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 }],
             ['class' => 'yii\grid\ActionColumn',
                 'template' => '{update} {delete}',
-                'contentOptions' => ['style' => 'width: 10%;'],
+                'contentOptions' => ['style' => 'width: 8%;'],
                 'buttons' => [
                     'update' => function ($url, $model, $key) {
                         return Html::a('<span class="glyphicon glyphicon-edit"></span>', $url, ['class' => 'btn btn-xs btn-primary', 'data-pjax' => 0, 'title' => 'Alterar Retirada']);

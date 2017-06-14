@@ -15,7 +15,8 @@ $mpdf->WriteHTML($html);
 $html = '<h1 class="pdf-subtitle">' . $model->getRelatorioData() . '</h1>';
 $mpdf->WriteHTML($html);
 
-$html = $this->render(!in_array($model->id, [6]) ? 'pages/' . $model->getPage() : 'prints/mensal-despesas', ['modelRelatorio' => $model]);
+$chartID == NULL ? $html = $this->render(!in_array($model->id, [6]) ? 'pages/' . $model->getPage() : 'prints/mensal-despesas', ['modelRelatorio' => $model]) : '';
+$chartID != NULL ? $html = $this->render('pages/charts', ['modelRelatorio' => $model, 'chartID' => $chartID]) : '';
 $mpdf->WriteHTML($html);
 
 $mpdf->Output();

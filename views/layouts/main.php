@@ -24,23 +24,29 @@ AppAsset::register($this);
         <div class="wrap">
             <?php
             NavBar::begin([
-                'brandLabel' => 'My Company',
-                'brandUrl' => Yii::$app->homeUrl . 'relatorio',
+                'brandLabel' => 'Dashboard',
+                'brandUrl' => Yii::$app->homeUrl,
                 'options' => [
                     'class' => 'navbar-inverse navbar-fixed-top',
                 ],
             ]);
             echo Nav::widget([
-                'options' => ['class' => 'navbar-nav navbar-right'],
+                'options' => ['class' => 'navbar-nav'],
                 'items' => [
-                    ['label' => 'Jogos', 'url' => ['/jogo']],
-                    ['label' => 'Serviços', 'url' => ['/servico']],
-                    ['label' => 'Despesa', 'items' => [
-                            ['label' => 'Categorias', 'url' => ['/categoria']],
-                            ['label' => 'Despesas', 'url' => ['/despesa']]
+                    ['label' => 'Jogos', 'url' => ['/jogo'], 'options' => ['class' => Yii::$app->controller->id == 'jogo' ? 'active' : '']],
+                    ['label' => 'Serviços', 'url' => ['/servico'], 'options' => ['class' => Yii::$app->controller->id == 'servico' ? 'active' : '']],
+                    ['label' => 'Despesa', 'options' => ['class' => Yii::$app->controller->id == 'despesa' || Yii::$app->controller->id == 'categoria' ? 'active' : ''], 'items' => [
+                            ['label' => 'Categorias', 'url' => ['/categoria'], 'options' => ['class' => Yii::$app->controller->id == 'categoria' ? 'active' : '']],
+                            ['label' => 'Despesas', 'url' => ['/despesa'], 'options' => ['class' => Yii::$app->controller->id == 'despesa' ? 'active' : '']]
                         ]],
-                    ['label' => 'Retiradas', 'url' => ['/retirada']],
-                    ['label' => 'Relatórios', 'url' => ['/relatorio']],
+                    ['label' => 'Retiradas', 'url' => ['/retirada'], 'options' => ['class' => Yii::$app->controller->id == 'retirada' ? 'active' : '']],
+                    ['label' => 'Relatórios', 'url' => ['/relatorio'], 'options' => ['class' => Yii::$app->controller->id == 'relatorio' ? 'active' : '']],
+                    [
+                        'label' => 'LOT',
+                        'items' => [
+                            ['label' => 'LOT Jogos', 'url' => '/loteria_jogo/web'],
+                        ],
+                    ]
                 ],
             ]);
             NavBar::end();
@@ -49,19 +55,19 @@ AppAsset::register($this);
             <div class="container">
                 <?=
                 Breadcrumbs::widget([
-                    'homeLink' => ['label' => 'Página Principal', 'url' => ['/relatorio']],
+                    'homeLink' => ['label' => 'Dashboard', 'url' => ['/site/index']],
                     'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
                 ])
                 ?>
                 <?= $content ?>
             </div>
         </div>
-
+        
         <footer class="footer">
             <div class="container">
-                <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
+                <p class="pull-left">&copy; LOT</p>
 
-                <p class="pull-right"><?= Yii::powered() ?></p>
+                <p class="pull-right"><?= date('Y') ?></p>
             </div>
         </footer>
 

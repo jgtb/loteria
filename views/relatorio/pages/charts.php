@@ -36,7 +36,7 @@ use miloschuman\highcharts\Highcharts;
                     $retiradasProlaboraAnual = $modelRelatorio->getRetiradasProlaboraAnual($modelRelatorio->ano);
                     $despesasAnual = $modelRelatorio->getDespesasAnual($modelRelatorio->ano);
                     ?>
-                    <div class="alert alert-info text-center">
+                    <div class="alert alert-well text-center">
                         <div class="row">      
                             <div class="col-lg-1"><div class="panel-title">Geral</div></div>
                             <div class="col-lg-2">
@@ -80,6 +80,7 @@ use miloschuman\highcharts\Highcharts;
                     </div>
                 </div>
             </div>
+            <h1 class="panel-title m-b-15"><?= $modelRelatorio->getRelatorioData() ?> <span class="fa fa-calendar"></span></h1>
             <?php
             echo Highcharts::widget([
                 'options' => [
@@ -151,7 +152,7 @@ use miloschuman\highcharts\Highcharts;
                 ?>
             </div>
             <div class="col-lg-11">
-                <div class="alert alert-info">
+                <div class="alert alert-well">
                     <div class="row">
                         <div class="col-lg-3"><div class="panel-title"><?= $chart ?></div></div>
                         <div class="col-lg-9"><?= Html::a('<i class="fa-2x fa fa-print"></i>', '#', ['class' => 'btn btn-xs btn-info float-right']) ?></div>
@@ -159,6 +160,7 @@ use miloschuman\highcharts\Highcharts;
                 </div>
             </div>
         </div>
+        <h1 class="panel-title m-b-15"><?= $modelRelatorio->getRelatorioData() ?> <span class="fa fa-calendar"></span></h1>
         <?php
         echo Highcharts::widget([
             'options' => [
@@ -169,7 +171,7 @@ use miloschuman\highcharts\Highcharts;
                     'title' => [
                         'text' => '',
                     ],
-                    'categories' => $mesesDescricao,
+                    'categories' => ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
                 ],
                 'series' => [
                     [

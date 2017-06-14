@@ -10,13 +10,11 @@ $this->title = 'Comissão de Jogos';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
-<div class="jogo-index">
+<div class="index jogo-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h3><?= Html::encode($this->title) ?></h3>
 
-    <p>
-        <?= Html::a('Nova Comissão de Jogos', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
+    <?= Html::a('Nova Comissão de Jogos', ['create'], ['class' => 'btn btn-warning']) ?>
 
     <?php Pjax::begin(['id' => 'pjax-jogo', 'timeout' => false, 'enablePushState' => false, 'clientOptions' => ['method' => 'POST']]); ?>
 
@@ -35,6 +33,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     return 'R$ ' . number_format($model->valor, 2, ',', '.');
                 }],
             ['class' => 'yii\grid\ActionColumn',
+                'options' => ['style' => 'width: 7%;'],
                 'template' => '{update} {delete}',
                     'buttons' => [
                     'update' => function ($url, $model, $key) {
