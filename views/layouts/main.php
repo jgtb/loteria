@@ -24,7 +24,7 @@ AppAsset::register($this);
         <div class="wrap">
             <?php
             NavBar::begin([
-                'brandLabel' => 'Dashboard',
+                'brandLabel' => 'LOT',
                 'brandUrl' => Yii::$app->homeUrl,
                 'options' => [
                     'class' => 'navbar-inverse navbar-fixed-top',
@@ -55,7 +55,7 @@ AppAsset::register($this);
             <div class="container">
                 <?=
                 Breadcrumbs::widget([
-                    'homeLink' => ['label' => 'Dashboard', 'url' => ['/site/index']],
+                    'homeLink' => ['label' => 'LOT', 'url' => ['/site/index']],
                     'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
                 ])
                 ?>
