@@ -256,3 +256,8 @@ table a:not(.btn), .table a:not(.btn) {
 .index h3, .index .btn-warning {
     margin-bottom: 15px;
 }
+
+
+.table thead tr th a {
+    color: #fff;
+}
