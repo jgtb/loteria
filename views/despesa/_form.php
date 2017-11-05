@@ -12,7 +12,7 @@ use kartik\money\MaskMoney;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'categoria_id')->dropDownList(ArrayHelper::map(Categoria::findAll(['status' => 1]), 'categoria_id', 'descricao'), ['prompt' => 'Selecione a Categoria']) ?>
+    <?= $form->field($model, 'categoria_id')->dropDownList(ArrayHelper::map(Categoria::find()->where(['status' => 1])->orderBy(['descricao' => SORT_ASC])->all(), 'categoria_id', 'descricao'), ['prompt' => 'Selecione a Categoria']) ?>
 
     <?=
     $form->field($model, 'data')->widget(DatePicker::className(), [

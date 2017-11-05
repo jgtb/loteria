@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use app\models\Categoria;
 ?>
 
-<?php $categorias = Categoria::find()->all() ?>
+<?php $categorias = Categoria::find()->where(['status' => 1])->orderBy(['descricao' => SORT_ASC])->all() ?>
 <table class="table table-bordered table-striped table-condensed table-responsive">
     <thead class="text-center">
         <tr>
