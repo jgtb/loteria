@@ -17,6 +17,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?= Html::a('Nova Despesa', ['create'], ['class' => 'btn btn-warning']) ?>
 
+    <?= Html::a('Imprimir', '#', ['class' => 'btn btn-print btn-primary pull-right']) ?>
+
     <?php Pjax::begin(['id' => 'pjax-despesa', 'timeout' => false, 'enablePushState' => false, 'clientOptions' => ['method' => 'POST']]); ?>
 
     <?=
@@ -37,10 +39,12 @@ $this->params['breadcrumbs'][] = $this->title;
                     return 'R$ ' . number_format($model->valor, 2, ',', '.');
                 }],
             ['class' => 'yii\grid\ActionColumn',
+                'visible' => $dataProvider->getModels() != NULL,
                 'template' => '{update} {delete}',
+                'header' => 'Opcões',
                 'buttons' => [
                     'update' => function ($url, $model, $key) {
-                        return Html::a('<span class="glyphicon glyphicon-edit"></span>', $url, ['class' => 'btn btn-xs btn-primary', 'data-pjax' => 0, 'title' => 'Alterar Despesa']);
+                        return Html::a('<span class="glyphicon glyphicon-edit"></span>', $url, ['class' => 'btn btn-xs btn-primary m-r-5', 'data-pjax' => 0, 'title' => 'Alterar Despesa']);
                     },
                     'delete' => function ($url, $model, $key) use ($id) {
                         return Html::a('<span class="glyphicon glyphicon-trash"></span>', $url, ['class' => 'btn btn-xs btn-danger', 'title' => 'Excluír Despesa', 'data-pjax' => 0, 'data-confirm' => 'Você tem certeza que deseja excluír este item?', 'data-method' => 'post']);
@@ -52,5 +56,13 @@ $this->params['breadcrumbs'][] = $this->title;
     ?>
 
     <?php Pjax::end(); ?>
+
+    <script type="text/javascript" src="<?= Yii::$app->homeUrl ?>js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript">
+        const url = "<?= Yii::$app->homeUrl ?>";
+        $('.btn-print').on('click', function() {
+            $(this).attr('href', url + 'despesa/print?id=' + $('#despesasearch-data').val());
+        });
+    </script>
 
 </div>

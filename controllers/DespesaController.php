@@ -39,6 +39,7 @@ class DespesaController extends Controller {
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             $model->data = date('Y-m-d', strtotime(str_replace('/', '-', $model->data)));
             $model->save();
+            Yii::$app->session->setFlash('success', 'Despesa registrada com sucesso!');
             return $this->redirect(['index']);
         } else {
             return $this->render('create', [
@@ -53,6 +54,7 @@ class DespesaController extends Controller {
 
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             $model->data = date('Y-m-d', strtotime(str_replace('/', '-', $model->data)));
+            Yii::$app->session->setFlash('success', 'Despesa alterada com sucesso!');
             $model->save();
             return $this->redirect(['index']);
         } else {
@@ -62,9 +64,25 @@ class DespesaController extends Controller {
         }
     }
 
+    public function actionPrint($id) {
+        $month = explode('/', $id)[0];
+        $models = Despesa::find()
+            ->joinWith('categoria')
+            ->where(['MONTH(data)' => $month, 'despesa.status' => 1])
+            ->orderBy(['data' => SORT_ASC, 'categoria.descricao' => SORT_ASC])
+            ->asArray()
+            ->all();
+
+        $models = array_unique(array_map(function($item) { return $item['data']; }, $models));
+
+        return $this->render('pdf', ['date' => $id, 'models' => $models]);
+    }
+
     public function actionDelete($id)
     {
         $this->findModel($id)->delete();
+        
+        Yii::$app->session->setFlash('success', 'Despesa excluída com sucesso!');
 
         return $this->redirect(['index']);
     }

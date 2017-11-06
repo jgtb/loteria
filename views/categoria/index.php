@@ -27,11 +27,13 @@ $this->params['breadcrumbs'][] = $this->title;
                     return $model->descricao;
                 }],
             ['class' => 'yii\grid\ActionColumn',
+                'visible' => $dataProvider->getModels() != NULL,
                 'template' => '{update} {delete}',
-                'options' => ['style' => 'width: 7%;'],
+                'options' => ['style' => 'width: 10%;'],
+                'header' => 'Opcões',
                 'buttons' => [
                     'update' => function ($url, $model, $key) {
-                        return Html::a('<span class="glyphicon glyphicon-edit"></span>', $url, ['class' => 'btn btn-xs btn-primary', 'data-pjax' => 0, 'title' => 'Alterar Categoria']);
+                        return Html::a('<span class="glyphicon glyphicon-edit"></span>', $url, ['class' => 'btn btn-xs btn-primary m-r-5', 'data-pjax' => 0, 'title' => 'Alterar Categoria']);
                     },
                     'delete' => function ($url, $model, $key) use ($id) {
                         return Html::a('<span class="glyphicon glyphicon-trash"></span>', $url, ['class' => 'btn btn-xs btn-danger', 'title' => 'Excluír Categoria', 'data-pjax' => 0, 'data-confirm' => 'Você tem certeza que deseja excluír este item?', 'data-method' => 'post']);

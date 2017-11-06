@@ -6,9 +6,9 @@ use yii\widgets\ActiveForm;
 ?>
 
 <div class="categoria-form">
-
+    
     <?php $form = ActiveForm::begin(); ?>
-
+ 
     <?= $form->field($model, 'descricao')->textInput(['maxlength' => true]) ?>
 
     <div class="form-group">

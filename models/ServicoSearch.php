@@ -25,6 +25,9 @@ class ServicoSearch extends Servico {
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+            'pagination' =>[
+                'pageSize' => false,
+            ]
         ]);
 
         $this->load($params);

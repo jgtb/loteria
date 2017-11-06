@@ -4,9 +4,15 @@ use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
+use yii2mod\alert\Alert;
+use yii2mod\alert\AlertAsset;
 use app\assets\AppAsset;
+use kartik\icons\Icon;
+
+Icon::map($this);
 
 AppAsset::register($this);
+AlertAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -45,6 +51,7 @@ AppAsset::register($this);
                         'label' => 'LOT',
                         'items' => [
                             ['label' => 'LOT Jogos', 'url' => '/loteria_jogo/web'],
+                            //['label' => 'CR.CP', 'url' => '/crcp/web'],
                         ],
                     ]
                 ],
@@ -59,6 +66,7 @@ AppAsset::register($this);
                     'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
                 ])
                 ?>
+                <?php echo Alert::widget(); ?>
                 <?= $content ?>
             </div>
         </div>

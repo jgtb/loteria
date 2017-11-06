@@ -9,11 +9,9 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
-class JogoController extends Controller
-{
+class JogoController extends Controller {
 
-    public function behaviors()
-    {
+    public function behaviors() {
         return [
             'verbs' => [
                 'class' => VerbFilter::className(),
@@ -24,62 +22,62 @@ class JogoController extends Controller
         ];
     }
 
-    public function actionIndex()
-    {
+    public function actionIndex() {
         $searchModel = new JogoSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->post());
 
         return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
+                    'searchModel' => $searchModel,
+                    'dataProvider' => $dataProvider,
         ]);
     }
 
-    public function actionCreate()
-    {
+    public function actionCreate() {
         $model = new Jogo();
         $model->status = 1;
 
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             $model->data = date('Y-m-d', strtotime(str_replace('/', '-', $model->data)));
             $model->save();
+            Yii::$app->session->setFlash('success', 'Jogo registrado com sucesso!');
             return $this->redirect(['index']);
         } else {
             return $this->render('create', [
-                'model' => $model,
+                        'model' => $model,
             ]);
         }
     }
 
-    public function actionUpdate($id)
-    {
+    public function actionUpdate($id) {
         $model = $this->findModel($id);
         $model->data = date('d/m/Y', strtotime($model->data));
 
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             $model->data = date('Y-m-d', strtotime(str_replace('/', '-', $model->data)));
             $model->save();
+            Yii::$app->session->setFlash('success', 'Jogo alterado com sucesso!');
             return $this->redirect(['index']);
         } else {
             return $this->render('update', [
-                'model' => $model,
+                        'model' => $model,
             ]);
         }
     }
 
-    public function actionDelete($id)
-    {
+    public function actionDelete($id) {
         $this->findModel($id)->delete();
+
+        Yii::$app->session->setFlash('success', 'Jogo excluído com sucesso!');
 
         return $this->redirect(['index']);
     }
 
-    protected function findModel($id)
-    {
+    protected function findModel($id) {
         if (($model = Jogo::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
+
 }

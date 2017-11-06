@@ -33,7 +33,7 @@ body {
 
 .breadcrumb {
     margin-top: 15px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .not-set {
@@ -193,7 +193,7 @@ table a:not(.btn), .table a:not(.btn) {
     padding: 12px;
 }
 
-.table tbody tr td:last-child {
+.grid-view .table tbody tr td:last-child, .grid-view .table thead tr th:last-child, .grid-view .table thead tr td:last-child {
     text-align: center;
     vertical-align: middle;
 }
@@ -235,29 +235,23 @@ table a:not(.btn), .table a:not(.btn) {
     border-color: transparent;
 }
 
-.col-lg-28 {
-    width: 28%;
-    float: left;
-    position: relative;
-    min-height: 1px;
-    padding-left: 15px;
-    padding-right: 15px;
-}
-
-.col-lg-72 {
-    width: 72%;
-    float: left;
-    position: relative;
-    min-height: 1px;
-    padding-left: 15px;
-    padding-right: 15px;
-}
-
 .index h3, .index .btn-warning {
     margin-bottom: 15px;
 }
 
-
 .table thead tr th a {
     color: #fff;
+}
+
+.m-r-5 {
+    margin-right: 5px;
+}
+
+.input-daterange input {
+    font-size: 12px;
+}
+
+.navbar-inverse .navbar-nav>li>a:hover {
+    color: #ffffff;
+    background-color: #00a379;
 }

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "7b89aaf5f2010dbba67db43f887fbbfd",
+    "content-hash": "01144ac8bf7005b3a33e3111048df761",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -218,6 +218,40 @@
             }
         },
         {
+            "name": "bower-asset/sweetalert",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/t4t5/sweetalert.git",
+                "reference": "32bd141c24cbc56dd4838ac77c15fa7f96da002d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/t4t5/sweetalert/zipball/32bd141c24cbc56dd4838ac77c15fa7f96da002d",
+                "reference": "32bd141c24cbc56dd4838ac77c15fa7f96da002d",
+                "shasum": ""
+            },
+            "require-dev": {
+                "bower-asset/jquery": "~2.1.4",
+                "bower-asset/qunit": "~1.18.0"
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": [
+                    "dist/sweetalert.min.js",
+                    "dist/sweetalert.css"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "A beautiful replacement for JavaScript's alert.",
+            "keywords": [
+                "alert",
+                "modal"
+            ]
+        },
+        {
             "name": "bower-asset/yii2-pjax",
             "version": "v2.0.6",
             "source": {
@@ -309,7 +343,7 @@
                 "markdown",
                 "markdown-extra"
             ],
-            "time": "2017-04-04 09:40:58"
+            "time": "2017-04-04T09:40:58+00:00"
         },
         {
             "name": "components/flag-icon-css",
@@ -317,12 +351,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/lipis/flag-icon-css.git",
-                "reference": "e1d07963d8001b69e5de617f17e5692d0fc43ec6"
+                "reference": "4deb96339e78ef0699c773d37a6f0f9e7144bff9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/lipis/flag-icon-css/zipball/e1d07963d8001b69e5de617f17e5692d0fc43ec6",
-                "reference": "e1d07963d8001b69e5de617f17e5692d0fc43ec6",
+                "url": "https://api.github.com/repos/lipis/flag-icon-css/zipball/4deb96339e78ef0699c773d37a6f0f9e7144bff9",
+                "reference": "4deb96339e78ef0699c773d37a6f0f9e7144bff9",
                 "shasum": ""
             },
             "type": "component",
@@ -347,7 +381,7 @@
                 }
             ],
             "description": "CSS for vector based country flags",
-            "time": "2017-05-13 19:33:13"
+            "time": "2017-06-22T21:15:16+00:00"
         },
         {
             "name": "ezyang/htmlpurifier",
@@ -442,7 +476,7 @@
                 "font",
                 "icon"
             ],
-            "time": "2017-05-26 17:53:41"
+            "time": "2017-05-26T17:53:41+00:00"
         },
         {
             "name": "kartik-v/yii2-dropdown-x",
@@ -489,7 +523,7 @@
                 "widget",
                 "yii2"
             ],
-            "time": "2017-01-03 11:46:16"
+            "time": "2017-01-03T11:46:16+00:00"
         },
         {
             "name": "kartik-v/yii2-field-range",
@@ -639,7 +673,7 @@
                 "widget",
                 "yii2"
             ],
-            "time": "2017-05-04 12:34:30"
+            "time": "2017-05-04T12:34:30+00:00"
         },
         {
             "name": "kartik-v/yii2-money",
@@ -694,7 +728,7 @@
                 "widget",
                 "yii2"
             ],
-            "time": "2017-05-23 12:14:36"
+            "time": "2017-05-23T12:14:36+00:00"
         },
         {
             "name": "kartik-v/yii2-mpdf",
@@ -702,12 +736,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/kartik-v/yii2-mpdf.git",
-                "reference": "efa2a84a760c424eb658387874591032f3693cca"
+                "reference": "5f3cf0d69881659b98e693b98c53f2cd00f4a934"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kartik-v/yii2-mpdf/zipball/efa2a84a760c424eb658387874591032f3693cca",
-                "reference": "efa2a84a760c424eb658387874591032f3693cca",
+                "url": "https://api.github.com/repos/kartik-v/yii2-mpdf/zipball/5f3cf0d69881659b98e693b98c53f2cd00f4a934",
+                "reference": "5f3cf0d69881659b98e693b98c53f2cd00f4a934",
                 "shasum": ""
             },
             "require": {
@@ -746,7 +780,7 @@
                 "utf8",
                 "yii2"
             ],
-            "time": "2017-06-18 11:26:53"
+            "time": "2017-06-22 14:03:47"
         },
         {
             "name": "kartik-v/yii2-widget-datepicker",
@@ -803,55 +837,6 @@
             "time": "2017-04-01 16:03:50"
         },
         {
-            "name": "kartik-v/yii2-widget-sidenav",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/kartik-v/yii2-widget-sidenav.git",
-                "reference": "54186e7f127dd5fc7ea3af0ac22d5f1ddd427a63"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/kartik-v/yii2-widget-sidenav/zipball/54186e7f127dd5fc7ea3af0ac22d5f1ddd427a63",
-                "reference": "54186e7f127dd5fc7ea3af0ac22d5f1ddd427a63",
-                "shasum": ""
-            },
-            "require": {
-                "kartik-v/yii2-krajee-base": "*"
-            },
-            "type": "yii2-extension",
-            "autoload": {
-                "psr-4": {
-                    "kartik\\sidenav\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD 3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Kartik Visweswaran",
-                    "email": "kartikv2@gmail.com",
-                    "homepage": "http://www.krajee.com/"
-                }
-            ],
-            "description": "An enhanced side navigation menu styled for bootstrap (sub repo split from yii2-widgets)",
-            "homepage": "https://github.com/kartik-v/yii2-widget-sidenav",
-            "keywords": [
-                "bootstrap",
-                "extension",
-                "jquery",
-                "menu",
-                "navigation",
-                "plugin",
-                "sidenav",
-                "widget",
-                "yii2"
-            ],
-            "time": "2015-04-21 15:38:40"
-        },
-        {
             "name": "miloschuman/yii2-highcharts-widget",
             "version": "dev-master",
             "source": {
@@ -898,7 +883,7 @@
                 "widget",
                 "yii2"
             ],
-            "time": "2017-03-17 15:30:28"
+            "time": "2017-03-17T15:30:28+00:00"
         },
         {
             "name": "mpdf/mpdf",
@@ -968,7 +953,7 @@
                 "php",
                 "utf-8"
             ],
-            "time": "2017-06-05 11:42:31"
+            "time": "2017-06-05T11:42:31+00:00"
         },
         {
             "name": "paragonie/random_compat",
@@ -1063,7 +1048,7 @@
                 "psr",
                 "psr-3"
             ],
-            "time": "2016-10-10 12:19:37"
+            "time": "2016-10-10T12:19:37+00:00"
         },
         {
             "name": "setasign/fpdi",
@@ -1166,7 +1151,54 @@
                 "mail",
                 "mailer"
             ],
-            "time": "2017-05-19 18:47:58"
+            "time": "2017-05-19T18:47:58+00:00"
+        },
+        {
+            "name": "yii2mod/yii2-sweet-alert",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yii2mod/yii2-sweet-alert.git",
+                "reference": "7cc31ba5e5e5961e711e3af52b8c2fffd21d966a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yii2mod/yii2-sweet-alert/zipball/7cc31ba5e5e5961e711e3af52b8c2fffd21d966a",
+                "reference": "7cc31ba5e5e5961e711e3af52b8c2fffd21d966a",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/sweetalert": "*",
+                "php": ">=5.5",
+                "yiisoft/yii2": "*",
+                "yiisoft/yii2-bootstrap": "*"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "~2.0"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "yii2mod\\alert\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Igor Chepurnoy",
+                    "email": "igorzfort@gmail.com"
+                }
+            ],
+            "description": "Alert widget based on SweetAlert extension {@link http://tristanedwards.me/sweetalert)",
+            "keywords": [
+                "yii2",
+                "yii2 alert",
+                "yii2 sweet alert"
+            ],
+            "time": "2017-04-20T14:10:51+00:00"
         },
         {
             "name": "yiisoft/yii2",
@@ -1174,12 +1206,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-framework.git",
-                "reference": "7d0d216781f2121d6b6daf8bcd9bed935b69afe9"
+                "reference": "74dce2147c4f1c2cd7bb3b3245271e680d1ae9ce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/7d0d216781f2121d6b6daf8bcd9bed935b69afe9",
-                "reference": "7d0d216781f2121d6b6daf8bcd9bed935b69afe9",
+                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/74dce2147c4f1c2cd7bb3b3245271e680d1ae9ce",
+                "reference": "74dce2147c4f1c2cd7bb3b3245271e680d1ae9ce",
                 "shasum": ""
             },
             "require": {
@@ -1266,7 +1298,7 @@
                 "framework",
                 "yii2"
             ],
-            "time": "2017-06-18 15:41:17"
+            "time": "2017-06-23T23:28:54+00:00"
         },
         {
             "name": "yiisoft/yii2-bootstrap",
@@ -1274,12 +1306,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-bootstrap.git",
-                "reference": "fe830200b069dfc03c5ece18e805ac46170edd37"
+                "reference": "b4681f1ed0496db6ed4a690bef0c1748f89de0d9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-bootstrap/zipball/fe830200b069dfc03c5ece18e805ac46170edd37",
-                "reference": "fe830200b069dfc03c5ece18e805ac46170edd37",
+                "url": "https://api.github.com/repos/yiisoft/yii2-bootstrap/zipball/b4681f1ed0496db6ed4a690bef0c1748f89de0d9",
+                "reference": "b4681f1ed0496db6ed4a690bef0c1748f89de0d9",
                 "shasum": ""
             },
             "require": {
@@ -1316,7 +1348,7 @@
                 "bootstrap",
                 "yii2"
             ],
-            "time": "2017-04-18 23:57:19"
+            "time": "2017-06-22T22:37:30+00:00"
         },
         {
             "name": "yiisoft/yii2-composer",
@@ -1366,7 +1398,7 @@
                 "extension installer",
                 "yii2"
             ],
-            "time": "2016-12-20 13:33:37"
+            "time": "2016-12-20T13:33:37+00:00"
         },
         {
             "name": "yiisoft/yii2-jui",
@@ -1416,7 +1448,7 @@
                 "jQuery UI",
                 "yii2"
             ],
-            "time": "2017-04-19 15:08:35"
+            "time": "2017-04-19T15:08:35+00:00"
         },
         {
             "name": "yiisoft/yii2-swiftmailer",
@@ -1466,7 +1498,7 @@
                 "swiftmailer",
                 "yii2"
             ],
-            "time": "2017-05-24 10:14:19"
+            "time": "2017-05-24T10:14:19+00:00"
         }
     ],
     "packages-dev": [
@@ -1892,6 +1924,55 @@
                 "url"
             ],
             "time": "2017-06-19T13:30:27+00:00"
+        },
+        {
+            "name": "kartik-v/yii2-widget-sidenav",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kartik-v/yii2-widget-sidenav.git",
+                "reference": "54186e7f127dd5fc7ea3af0ac22d5f1ddd427a63"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kartik-v/yii2-widget-sidenav/zipball/54186e7f127dd5fc7ea3af0ac22d5f1ddd427a63",
+                "reference": "54186e7f127dd5fc7ea3af0ac22d5f1ddd427a63",
+                "shasum": ""
+            },
+            "require": {
+                "kartik-v/yii2-krajee-base": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "kartik\\sidenav\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD 3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Kartik Visweswaran",
+                    "email": "kartikv2@gmail.com",
+                    "homepage": "http://www.krajee.com/"
+                }
+            ],
+            "description": "An enhanced side navigation menu styled for bootstrap (sub repo split from yii2-widgets)",
+            "homepage": "https://github.com/kartik-v/yii2-widget-sidenav",
+            "keywords": [
+                "bootstrap",
+                "extension",
+                "jquery",
+                "menu",
+                "navigation",
+                "plugin",
+                "sidenav",
+                "widget",
+                "yii2"
+            ],
+            "time": "2015-04-21T15:38:40+00:00"
         },
         {
             "name": "myclabs/deep-copy",
@@ -2437,12 +2518,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "db3166889854d881265f7d3caa20fa82132305fa"
+                "reference": "c0c61c97be37e1c77ab61ad73448e9208c05aade"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/db3166889854d881265f7d3caa20fa82132305fa",
-                "reference": "db3166889854d881265f7d3caa20fa82132305fa",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/c0c61c97be37e1c77ab61ad73448e9208c05aade",
+                "reference": "c0c61c97be37e1c77ab61ad73448e9208c05aade",
                 "shasum": ""
             },
             "require": {
@@ -2511,7 +2592,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-06-14T16:53:16+00:00"
+            "time": "2017-06-23T12:45:27+00:00"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -3186,12 +3267,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/browser-kit.git",
-                "reference": "7292a66997c5f456e02141451f11e5135e80482c"
+                "reference": "24ccab4a84236bf328b512ed95b2d0992973b11f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/browser-kit/zipball/7292a66997c5f456e02141451f11e5135e80482c",
-                "reference": "7292a66997c5f456e02141451f11e5135e80482c",
+                "url": "https://api.github.com/repos/symfony/browser-kit/zipball/24ccab4a84236bf328b512ed95b2d0992973b11f",
+                "reference": "24ccab4a84236bf328b512ed95b2d0992973b11f",
                 "shasum": ""
             },
             "require": {
@@ -3235,7 +3316,7 @@
             ],
             "description": "Symfony BrowserKit Component",
             "homepage": "https://symfony.com",
-            "time": "2017-05-24T09:02:43+00:00"
+            "time": "2017-06-24T09:47:31+00:00"
         },
         {
             "name": "symfony/console",
@@ -3243,12 +3324,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "bd7bf81dc914c7c7c01daad32946681c85ea16ae"
+                "reference": "0353f8aa5843d0cae051185514c0d877699704cc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/bd7bf81dc914c7c7c01daad32946681c85ea16ae",
-                "reference": "bd7bf81dc914c7c7c01daad32946681c85ea16ae",
+                "url": "https://api.github.com/repos/symfony/console/zipball/0353f8aa5843d0cae051185514c0d877699704cc",
+                "reference": "0353f8aa5843d0cae051185514c0d877699704cc",
                 "shasum": ""
             },
             "require": {
@@ -3305,7 +3386,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2017-06-10T12:08:03+00:00"
+            "time": "2017-06-24T09:47:31+00:00"
         },
         {
             "name": "symfony/css-selector",
@@ -3649,12 +3730,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "08c644988dba9d608d18bb8ad8dd633f276137f7"
+                "reference": "1faeaf2aa8180967d80329213f77c1bcb75fe4fa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/08c644988dba9d608d18bb8ad8dd633f276137f7",
-                "reference": "08c644988dba9d608d18bb8ad8dd633f276137f7",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/1faeaf2aa8180967d80329213f77c1bcb75fe4fa",
+                "reference": "1faeaf2aa8180967d80329213f77c1bcb75fe4fa",
                 "shasum": ""
             },
             "require": {
@@ -3696,7 +3777,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2017-06-14T20:38:21+00:00"
+            "time": "2017-06-24T09:47:31+00:00"
         },
         {
             "name": "webmozart/assert",
@@ -3754,12 +3835,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-debug.git",
-                "reference": "1d3a7cb5b85505cfe0a4e50abe9ae9da45c09574"
+                "reference": "4b975802172cdbe07890013f037abb36c3f57d60"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-debug/zipball/1d3a7cb5b85505cfe0a4e50abe9ae9da45c09574",
-                "reference": "1d3a7cb5b85505cfe0a4e50abe9ae9da45c09574",
+                "url": "https://api.github.com/repos/yiisoft/yii2-debug/zipball/4b975802172cdbe07890013f037abb36c3f57d60",
+                "reference": "4b975802172cdbe07890013f037abb36c3f57d60",
                 "shasum": ""
             },
             "require": {
@@ -3793,7 +3874,7 @@
                 "debugger",
                 "yii2"
             ],
-            "time": "2017-05-22T12:59:26+00:00"
+            "time": "2017-06-23T23:16:51+00:00"
         },
         {
             "name": "yiisoft/yii2-faker",
@@ -3848,12 +3929,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-gii.git",
-                "reference": "11dbba735105a098f8e0b44b601f91c062fb9324"
+                "reference": "3a51c662e38c1a7176ebeeec37444ab392746509"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-gii/zipball/11dbba735105a098f8e0b44b601f91c062fb9324",
-                "reference": "11dbba735105a098f8e0b44b601f91c062fb9324",
+                "url": "https://api.github.com/repos/yiisoft/yii2-gii/zipball/3a51c662e38c1a7176ebeeec37444ab392746509",
+                "reference": "3a51c662e38c1a7176ebeeec37444ab392746509",
                 "shasum": ""
             },
             "require": {
@@ -3893,7 +3974,7 @@
                 "gii",
                 "yii2"
             ],
-            "time": "2017-05-22T12:25:11+00:00"
+            "time": "2017-06-22T22:36:43+00:00"
         }
     ],
     "aliases": [],

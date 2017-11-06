@@ -39,13 +39,10 @@ class DespesaSearch extends Despesa {
 
         $query->andFilterWhere(['=', 'despesa.categoria_id', $this->categoria_id])
                 ->andFilterWhere(['=', 'despesa.valor', $this->valor]);
-        
-        if ($this->data) {
-            $query->andFilterWhere(['>=', 'data', date('Y-m-d', strtotime(str_replace('/', '-', '01/' . $this->data)))]);
-            $query->andFilterWhere(['<=', 'data', date('Y-m-d', strtotime(str_replace('/', '-', '31/' . $this->data)))]);
-        }
+                
+        if ($this->data) 
+            $query->andFilterWhere(['=', 'MONTH(data)', date('m', strtotime(str_replace('/', '-', '01/' . $this->data)))]);
             
-
         return $dataProvider;
     }
 

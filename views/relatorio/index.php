@@ -11,7 +11,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="relatorio-index">
 
     <div class="row">
-        <div class="col-lg-28">
+        <div class="col-lg-3">
             <div class="panel panel-default">
                 <div class="panel-heading padding-4">
                     <ul class="nav nav-pills nav-justified">
@@ -29,7 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 </div>
             </div>
         </div>
-        <div class="col-lg-72">
+        <div class="col-lg-9">
             <?php if ($id != NULL) : ?>
                 <div class="panel panel-default">
                     <div class="panel-heading panel-heading-main">
@@ -39,7 +39,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         <?php endif; ?>
                         <h1 class="panel-title text-uppercase text-center"><?= $modelRelatorio->getRelatorio(); ?></h1>
                     </div>
-                    <div class="panel-body panel-body-table">
+                    <div class="panel-body panel-body-table overflow-auto">
                         <h1 class="panel-title m-b-15"><?= $modelRelatorio->getRelatorioData() ?> <span class="fa fa-calendar"></span></h1>
                         <?php echo $this->render('pages/' . $modelRelatorio->getPage(), ['modelRelatorio' => $modelRelatorio]); ?>
                     </div>

@@ -48,6 +48,7 @@ class CategoriaController extends Controller
         $model->status = 1;
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            Yii::$app->session->setFlash('success',  'Categoria registrada com sucesso!');
             return $this->redirect(['index']);
         } else {
             return $this->render('create', [
@@ -61,6 +62,7 @@ class CategoriaController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            Yii::$app->session->setFlash('success', 'Categoria alterada com sucesso!');
             return $this->redirect(['index']);
         } else {
             return $this->render('update', [
@@ -74,6 +76,8 @@ class CategoriaController extends Controller
         $model = $this->findModel($id);
         $model->status = 0;
         $model->save();
+        
+        Yii::$app->session->setFlash('success', 'Categoria excluída com sucesso!');
 
         return $this->redirect(['index']);
     }

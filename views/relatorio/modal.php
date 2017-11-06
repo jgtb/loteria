@@ -29,7 +29,6 @@ Modal::begin([
                     <td>R$ <?= number_format($modelDespesa->valor, 2, ',', '.') ?></td>
                 </tr>
             <?php endforeach; ?>
-
         </tbody>
     </table>
 <?php endif; ?>

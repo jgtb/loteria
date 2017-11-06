@@ -4,32 +4,29 @@ namespace app\models;
 
 use Yii;
 
-class Categoria extends \yii\db\ActiveRecord
-{
+class Categoria extends \yii\db\ActiveRecord {
 
-    public static function tableName()
-    {
+    public static function tableName() {
         return 'categoria';
     }
 
-    public function rules()
-    {
+    public function rules() {
         return [
-            [['descricao'], 'string', 'max' => 225, 'message' => 'Campo obrigatório'],
-            [['descricao'], 'unique', 'message' => 'Categoria já existente'],
+                [['descricao'], 'required', 'message' => 'Campo obrigatório'],
+                [['descricao'], 'string', 'max' => 225],
+                [['descricao'], 'unique', 'message' => 'Categoria já existente'],
         ];
     }
 
-    public function attributeLabels()
-    {
+    public function attributeLabels() {
         return [
             'categoria_id' => 'Categoria ID',
             'descricao' => 'Descrição',
         ];
     }
 
-    public function getDespesas()
-    {
+    public function getDespesas() {
         return $this->hasMany(Despesa::className(), ['categoria_id' => 'categoria_id']);
     }
+
 }

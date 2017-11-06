@@ -33,11 +33,13 @@ $this->params['breadcrumbs'][] = $this->title;
                     return 'R$ ' . number_format($model->valor, 2, ',', '.');
                 }],
             ['class' => 'yii\grid\ActionColumn',
-                'options' => ['style' => 'width: 7%;'],
+                'visible' => $dataProvider->getModels() != NULL,
+                'options' => ['style' => 'width: 9%;'],
+                'header' => 'Opcões',
                 'template' => '{update} {delete}',
-                    'buttons' => [
+                'buttons' => [
                     'update' => function ($url, $model, $key) {
-                        return Html::a('<span class="glyphicon glyphicon-edit"></span>', $url, ['class' => 'btn btn-xs btn-primary', 'title' => 'Alterar Jogo', 'data-pjax' => 0]);
+                        return Html::a('<span class="glyphicon glyphicon-edit"></span>', $url, ['class' => 'btn btn-xs btn-primary m-r-5', 'title' => 'Alterar Jogo', 'data-pjax' => 0]);
                     },
                     'delete' => function ($url, $model, $key) use ($id) {
                         return Html::a('<span class="glyphicon glyphicon-trash"></span>', $url, ['class' => 'btn btn-xs btn-danger', 'title' => 'Excluír Jogo', 'data-pjax' => 0, 'data-confirm' => 'Você tem certeza que deseja excluír este item?', 'data-method' => 'post']);
